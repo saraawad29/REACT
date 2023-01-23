@@ -9,18 +9,69 @@
 <body>
     <div id = "app"></div>
     <div id = "h1"></div>
-    <script src="https://unpkg.com/react@17/umd/react.developement.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.developement.js"></script>
-    <script type="text/javascript">
-        const app = document.getElementById('app');
-        // creation d'un nouvel element html, une balise h1
-        const header = document.getElementById('h1');
-        // creation de text pour l'element html h1 
-        const headerContent = document.createTextNode('DE l\'html créé avec javascript');
-        // ajout de text à l'element html h1 
-        header.append(headerContent);
-        // ajout de l'element html à l'interieur de la div
-        app.appendChild(header);
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+         const app = document.getElementById("app");
+
+
+        function Header(props){
+            console.log(props)
+            console.log('je suis dans le composant Header!')
+
+            return (<h1>lorem Ipsum </h1>)
+        } 
+
+
+
+        function Home(){
+            /*let compteur=0*/
+            const [compteur, setCompteur] = React.useState(0);
+            const names = ['test', 'test2', 'test3']
+            function handleClick(){
+                setCompteur(compteur + 1)
+                console.log(compteur)
+                console.log("incrementer le compteur")
+            /*    compteur = compteur +1;
+                console.log(compteur);*/
+            }
+
+            return(
+                <div>
+                    <Header title="test" />
+                  
+                    <ul>
+                        {names.map((name)=>(
+                            <li key={name}>{name}</li>
+                        ))}
+                    </ul>
+                    <button onClick={handleClick}>Compteur {compteur}</button>
+                </div>
+            );
+
+        }
+
+
+     ReactDOM.render(<Home />, app);
     </script>
+
+    <!-- <script type="text/jsx">
+        const app = document.getElementById('app');
+        ReactDOM.render(<h1>lorem Ipsum</h1>,app);
+    </script> -->
+
+    <!-- <script type="text/javascript">
+        const app = document.getElementById('app');
+        ReactDOM.rendre(<h1>DE l\'html créé avec javascript</h1>,app);
+        // // creation d'un nouvel element html, une balise h1
+        // const header = document.getElementById('h1');
+        // // creation de text pour l'element html h1 
+        // const headerContent = document.createTextNode('DE l\'html créé avec javascript');
+        // // ajout de text à l'element html h1 
+        // header.append(headerContent);
+        // // ajout de l'element html à l'interieur de la div
+        // app.appendChild(header);
+    </script> -->
 </body>
 </html>
