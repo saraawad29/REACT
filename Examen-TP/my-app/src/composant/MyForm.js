@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import MyList from "./MyList";
 
 function MyForm (){
     const [name, setName]= useState("");
@@ -16,15 +17,21 @@ function MyForm (){
     return(
       <div>
           <form className="form" onSubmit={handleSubmit}>
-              <h1 className="test">My Form</h1>
+              <h1 className="my-form">My Form</h1>
               
-              <label className="test">Name: <input type="text" className="name" id="name" onChange={e => setName(e.target.value)} required />
+              <label className="my-form">Name: <input type="text" className="name" id="name" onChange={e => setName(e.target.value)} required />
               </label>
-              <label className="test">Age: <input type="text" className="age" id="age" onChange={e => setage(e.target.value)} required />
+              <label className="my-form">Age: <input type="text" className="age" id="age" onChange={e => setage(e.target.value)} required />
               </label>
               <button className="button" type = 'submit'>Soumettre</button>
+              <h4 className="my-form">The list</h4>
+              <p>{name}</p>
+              <p>{age}</p>
 
           </form>
+         
+
+        
       </div>   
     );
     }
